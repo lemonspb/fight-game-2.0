@@ -1,14 +1,35 @@
+body{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Comfortaa', cursive;
+
+}
+
 .person{
+
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 10px;
+    flex-wrap:wrap;
+}
+.person__title{
+    width: 100%;
+    text-align: center;
+    font-size:40px;
+    padding-bottom: 20px;
 }
 .person-item{
-    
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 1px solid transparent;
+}
+.person-item:hover{
+    border: 1px solid black;
 }
 .person-item__class{
    text-align: center;
@@ -32,4 +53,89 @@
 
 .select-name{
     display: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
+
+
+.playing-field{
+    height: 100%;
+    display: none;  
+    flex-wrap: wrap;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.playing-field__main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.hp-fields{
+    width: 100%;
+    height: 20px;
+    display: flex;
+}
+.playing-field__move{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.playing-field__progress{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: red;
+}
+.hp-fields__item{
+
+    height: 100%;
+    color: #fff;
+    font-style: italic;
+    width: 50%;
+    border: 2px solid greenyellow;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: capitalize;
+    position: relative;
+
+}
+.hp-fields__inner{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: red;
+    height: 100%;
+    display: block;
+    z-index: -1;
+}
+.playing-field__btn{
+    background-color: #4caf50;
+    border: none;
+    color: #fff;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 15px;
+    cursor: pointer;
+    -webkit-transition-duration: .4s;
+    transition-duration: .4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+}
+.playing-field__btn--hit{
+display: none;
+}
+.playing-field__btn--super{
+    display: none;
+    }

@@ -1,57 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="person">
-      <div class="person-item">
-        <div class="person-item__class">
-          Имперец
-        </div>
-        <div class="person-item__img">
-          <img src="./images/black-night.png" alt="" data-name="имперец" />
-        </div>
-        <div class="person-item__characteristics"></div>
-      </div>
-      <div class="person-item">
-        <div class="person-item__class">
-          Орк
-        </div>
-        <div class="person-item__img">
-          <img
-            src="./images/transparent-wizard-png-picture-gallery-yopriceville-high-wizard-transparent-1051_1947.png"
-            alt=""
-            data-name="орк"
-          />
-        </div>
-        <div class="person-item__characteristics"></div>
-      </div>
 
-      <div class="person-item">
-        <div class="person-item__class">
-          Маг
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700|Righteous&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="person">
+    <div class="person__title"> Выбери персонажа</div>
+    <div class="person-item">
+      <div class="person-item__class">
+        Имперец
+      </div>
+      <div class="person-item__img">
+        <img src="./images/imperial.png" alt="" data-name="имперец" />
+      </div>
+      <ul class="person-item__characteristics">
+        <li>сила:</li>
+        <li>жизнь:</li>
+        <li>осбенности: может нанести двойной урон</li>
+      </ul>
+    </div>
+    <div class="person-item">
+      <div class="person-item__class">
+        Орк
+      </div>
+      <div class="person-item__img">
+        <img src="./images/orc.png" alt="" data-name="орк" />
+      </div>
+      <ul class="person-item__characteristics">
+        <li>сила</li>
+        <li>жизнь</li>
+        <li>осбенности:очень сильный и много здоровья </li>
+      </ul>
+    </div>
+
+    <div class="person-item">
+      <div class="person-item__class">
+        Маг
+      </div>
+      <div class="person-item__img">
+        <img src="./images/wizzard.png" alt="" data-name="маг" />
+      </div>
+      <ul class="person-item__characteristics">
+        <li>сила</li>
+        <li>жизнь</li>
+        <li>осбенности</li>
+      </ul>
+    </div>
+  </div>
+  <div class="select-name">
+    <div class="select-name__title"> Как тебя зовут?</div>
+    <input type="text" class="select-name__input" value="">
+    <button class="select-name__btn">Начать!</button>
+  </div>
+  <div class="playing-field">
+    <div class="hp-fields">
+      <div class="hp-fields__item">
+        <div class="hp-fields__inner hp-fields__inner--player">
+
         </div>
-        <div class="person-item__img">
-          <img
-            src="./images/5a576a011c992a034569ab6d.png"
-            alt=""
-            data-name="маг"
-          />
+      </div>
+      <div class="hp-fields__item">
+        <div class="hp-fields__inner hp-fields__inner--enemy">
+
+        </div>
+
+      </div>
+    </div>
+    <div class="playing-field__progress">
+        
+    </div>
+    <div class="playing-field__main">
+      <div class="person-item">
+        <div class="person-item__name person-item__name--player">
+
+        </div>
+        <div class="person-item__img person-item__img--playing-field">
+          <img src="" alt="" />
+        </div>
+        <div class="person-item__characteristics"></div>
+      </div>
+      <div class="person-item person-item--enemy">
+        <div class="person-item__phrases"></div>
+
+        <div class="person-item__name person-item__name--enemy">
+
+        </div>
+        <div class="person-item__img person-item__img--playing-field person-item__img--enemy">
+          <img src="" alt="" />
         </div>
         <div class="person-item__characteristics"></div>
       </div>
     </div>
-      <div class="select-name">
-          <div class="select-name__title"> Как тебя зовут?</div>  
-          <input type="text" class="select-name__input" value="">
-          <button class="select-name__btn">budsfds</button>
-      </div>  
+    <div class="playing-field__move">
+      <button class='playing-field__btn playing-field__btn--start'>Ход</button>
+      <button class='playing-field__btn playing-field__btn--hit'>Удар</button>
+      <button class='playing-field__btn playing-field__btn--super'>Супер удар</button>
+      <button class='playing-field__btn playing-field__btn--next'>К следующему бою</button>
+    </div>
+  </div>
+</body>
+<script src="script.js"></script>
 
-  </body>
-  <script src="script.js"></script>
 </html>
