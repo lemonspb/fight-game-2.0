@@ -139,3 +139,7 @@ display: none;
 .playing-field__btn--super{
     display: none;
     }
+
+    .playing-field__btn--next{
+        display: none;
+        }

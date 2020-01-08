@@ -1,3 +1,13 @@
+const phrasesOfenemies = ['тоби пизда!!','за Фашистов!', 'я ебал твою мамку!', 'я таких как ты на завтрак ем!!']
+const lastNameEnemy = ['больной', 'тупой','лысый','кривой','блатной','дерзкий','наглый'];
+const firstNameEnemy = ['трагладит', 'ивалид','политик','бомж','гопник','алкаш','задрот'];
+const randomMove = [1,2]
+function getRandomItem(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+
+
 class Hero {
   constructor(hero) {
     this.name = hero.name,
@@ -54,21 +64,14 @@ class Wizzard extends Hero {
   }
 }
 
-const phrasesOfenemies = ['тоби пизда!!','за Фашистов!', 'я ебал твою мамку!', 'я таких как ты на завтрак ем!!']
 
-const lastNameEnemy = ['больной', 'тупой','лысый','кривой','блатной','дерзкий','наглый'];
-const firstNameEnemy = ['трагладит', 'ивалид','политик','бомж','гопник','алкаш','задрот'];
-const randomMove = ['1','2']
-function getRandomItem(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
 
 class Enemy {
-  constructor(name) {
+  constructor(name, hp,dg,img ) {
      this.name = name,
-      this.hp = 50,
-      this.dg = 40
-      this.img = './images/orc.png'
+      this.hp = hp,
+      this.dg = dg,
+      this.img = img
       this.fullHp = 50
 
   }
@@ -98,6 +101,7 @@ const store = {
 
 };
 
+let enemy = new Enemy(`${getRandomItem(lastNameEnemy)} ${getRandomItem(firstNameEnemy)}`,50, 20,'./images/orc.png')
 
 
 const selectPerson = () => {
@@ -154,13 +158,12 @@ store.player.onChange(person => {
   const btnNext =  document.querySelector('.playing-field__btn--next')
   document.querySelector('.person-item__img--playing-field').children[0].src = person.img;
   document.querySelector('.person-item__name--player').innerText = person.name;
-  const enemy = new Enemy(`${getRandomItem(lastNameEnemy)} ${getRandomItem(firstNameEnemy)}`)
   document.querySelector('.person-item__name--enemy').innerText = enemy.name;
   document.querySelector('.person-item__img--enemy').children[0].src = enemy.img;
   
   document.querySelector('.playing-field__btn--start').addEventListener('click', ()=>{
 
-               if(getRandomItem(randomMove) ==='1'){
+               if(getRandomItem(randomMove) ===1){
                  document.querySelector('.playing-field__progress').innerText = 'Ход врага' 
                 document.querySelector('.person-item__phrases').innerText = getRandomItem(phrasesOfenemies)
                 document.querySelector('.playing-field__btn--start').style.display ='none';
@@ -178,7 +181,7 @@ store.player.onChange(person => {
           document.querySelector('.playing-field__progress').innerText = 'Ваш ход!' 
 
           document.querySelector('.playing-field__btn--start').style.display ='none';
-          if(getRandomItem(randomMove)==='1'){
+          if(getRandomItem(randomMove)===1){
 
              const hitBtn= document.querySelector('.playing-field__btn--hit')
              hitBtn.style.display ='block';
@@ -208,13 +211,20 @@ store.player.onChange(person => {
 
       btnNext.style.display = 'block'
       btnNext.addEventListener('click', ()=>{
-        person.hp = person. fullHp 
+        document.querySelector('.person-item__img--enemy').style.transform = 'rotate(0deg)';
+
+         enemy = new Enemy(`${getRandomItem(lastNameEnemy)} ${getRandomItem(firstNameEnemy)}`, 100, 20, './images/imperial.png')
+         console.log(enemy)
+  document.querySelector('.person-item__img--enemy').children[0].src = enemy.img;
+
       })
     }
     if(person.hp<=0){
       document.querySelector('.playing-field__progress').innerText = 'вы проиграли!' 
       document.querySelector('.person-item__img--playing-field').style.transform = 'rotate(90deg)';
     }
+    console.log(enemy)
+
   });
 
   });
